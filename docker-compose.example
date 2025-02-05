@@ -1,0 +1,23 @@
+services:
+  runner:
+    image: ghcr.io/jbrazio/github-runner-playwright:main
+    restart: unless-stopped
+    stop_grace_period: 60s
+
+    deploy:
+      mode: replicated
+      replicas: 4
+
+    # --- ONLY ENABLE IF ON LINUX AND YOU HAVE ENOUGH RAM -----------------------
+    # This section configures a temporary filesystem (tmpfs) for the work folder.
+    #tmpfs:
+    #  - /home/debian/_work:uid=1000,gid=1000,mode=0755,rw,exec
+
+    environment:
+      TZ:           "Europe/Lisbon"
+      ORGANIZATION: "MY_FANCY_ORG_NAME"
+      ACCESS_TOKEN: "SUPER_SECRET_STUFF"
+      RUNNER_LABEL: "label1,label2,label3"
+
+networks:
+  default:
