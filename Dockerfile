@@ -23,5 +23,4 @@ RUN npx playwright install --with-deps --only-shell
 RUN apt-get clean \
   && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
-#USER debian
-ENTRYPOINT ["/bin/bash"]
+USER debian
