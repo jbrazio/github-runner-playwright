@@ -19,7 +19,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
 
 # https://github.com/microsoft/playwright/blob/main/utils/docker/Dockerfile.noble
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
-RUN npx playwright install --with-deps \
+RUN npx playwright install@1.50.1 --with-deps \
   && chown -R debian:debian /ms-playwright
 
 # remove build dependencies and unnecessary files
