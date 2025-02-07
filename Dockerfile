@@ -17,6 +17,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
   && apt-get install -y --no-install-recommends nodejs \
   && node --version && npm --version
 
+# https://github.com/microsoft/playwright/blob/main/utils/docker/Dockerfile.noble
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 RUN npx playwright install --with-deps
 
 # remove build dependencies and unnecessary files
