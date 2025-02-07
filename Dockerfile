@@ -17,7 +17,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
   && apt-get install -y --no-install-recommends nodejs \
   && node --version && npm --version
 
-RUN npx playwright install --with-deps --only-shell
+RUN npx playwright install --with-deps
 
 # remove build dependencies and unnecessary files
 RUN apt-get clean \
